@@ -1,10 +1,14 @@
+"""
+Definition of views.
+"""
+
 from django.shortcuts import render
-from django.http import request
+from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
-# Create your views here.
 
-def index(request):
+def home(request):
+    """Renders the home page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -16,135 +20,30 @@ def index(request):
         })
     )
 
-def page_lista_cursos(request):
+def contact(request):
+    """Renders the contact page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/ListaCursos.html',
+        'app/contact.html',
         context_instance = RequestContext(request,
         {
-            'title':'Lista de Cursos',
-            'year':datetime.now().year,
-            'cursos':{{'nome':'SI', 'link':''}}
-        })
-    )
-
-def page_noticias(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/noticias.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Noticias',
+            'title':'Contact',
+            'message':'Your contact page.',
             'year':datetime.now().year,
         })
     )
 
-def page_login(request):
+def about(request):
+    """Renders the about page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/LoginPage.html',
+        'app/about.html',
         context_instance = RequestContext(request,
         {
-            'title':'Página de Login',
-            'year':datetime.now().year,
-        })
-    )
-
-def page_nova_senha(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/ForgotPass.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Esqueci Minha Senha',
-            'year':datetime.now().year,
-        })
-    )
-
-def page_cadastro_disciplina(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/CadastroDisciplina.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Cadastre uma Disciplina',
-            'year':datetime.now().year,
-        })
-    ))
-
-def page_contato(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/Contato.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Contato',
-            'year':datetime.now().year,
-        })
-    )
-
-def page_cadastro_usuario(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/CadastroPage.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Cadastre-se',
-            'year':datetime.now().year,
-        })
-    )
-
-def page_detalhes_cursos(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/DesCurso.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Detalhes dos Cursos',
-            'year':datetime.now().year,
-        })
-    )
-
-def page_detalhes_segdainf(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/SegDaInf.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Detalhes - Seg. Da Informação',
-            'year':datetime.now().year,
-        })
-    )
-
-def page_disciplinas_segdainf(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/dSegDaInfo.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Disciplinas Seg. Da Informação',
-            'year':datetime.now().year,
-        })
-    )
-
-def page_disciplina_seginfoatualidade(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/SegInfoAtualidade.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Seg. Da Informação na Atualidade',
+            'title':'About',
+            'message':'Your application description page.',
             'year':datetime.now().year,
         })
     )
