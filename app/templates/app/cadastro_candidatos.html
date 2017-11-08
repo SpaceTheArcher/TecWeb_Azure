@@ -1,0 +1,16 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <h1>Cadastro de Candidatos</h1>
+</div>
+
+<table class="table">
+  <tr><th>Nome dos Candidatos</th></tr>
+    {% for candidato in candidatos %}
+      <tr><td>{{ candidato.NomeCompleto }}</td></tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import request
+from core.forms import ContatoForm
 # Create your views here.
 
 def index(request):
