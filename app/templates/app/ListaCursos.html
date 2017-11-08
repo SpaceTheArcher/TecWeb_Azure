@@ -28,7 +28,7 @@
 
 	   {% for curso in cursos %}
 			 <div class="title-curso box d"><h3>{{ curso.nome }}</h3>
-       <a href="{{ curso.link }}"><p>Disciplinas do Curso</p></a>
+       <a href="{{ curso.nome }}.html"><p>Disciplinas do Curso</p></a>
        <div class="img_container"><img class="image" src="/static/images/{{ curso.nome }}.jpg" alt="{{ curso.nome }}" title="Segurança da informação"></div>
        </div>
 	   {% endfor %}
