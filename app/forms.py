@@ -1,12 +1,18 @@
+"""
+Definition of forms.
+"""
+
 from django import forms
-from core.choices import *
-from core.models import Contato
+from django.contrib.auth.forms import AuthenticationForm
+from django.utils.translation import ugettext_lazy as _
 
-class ContatoForm(forms.Form):
-
-    class Meta:
-        model = Contato
-        fields = "__all__"
-
-    def envia_email(self, contato):
-    	print("ENVIADO")
+class BootstrapAuthenticationForm(AuthenticationForm):
+    """Authentication form which uses boostrap CSS."""
+    username = forms.CharField(max_length=254,
+                               widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': 'User name'}))
+    password = forms.CharField(label=_("Password"),
+                               widget=forms.PasswordInput({
+                                   'class': 'form-control',
+                                   'placeholder':'Password'}))
