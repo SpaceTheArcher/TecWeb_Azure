@@ -15,18 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from app.views import index
-from app.views import page_lista_cursos
-from app.views import page_noticias
-from app.views import page_login
-from app.views import page_nova_senha
-from app.views import page_cadastro_disciplina
-from app.views import page_contato
-from app.views import page_cadastro_usuario
-from app.views import page_detalhes_cursos
-from app.views import page_detalhes_segdainf
-from app.views import page_disciplinas_segdainf
-from app.views import page_disciplina_seginfoatualidade
+from core.views import index
+from core.views import page_lista_cursos
+from core.views import page_noticias
+from core.views import page_login
+from core.views import page_nova_senha
+from core.views import page_cadastro_disciplina
+from core.views import page_contato
+from core.views import page_cadastro_usuario
+from core.views import page_detalhes_cursos
+from core.views import page_detalhes_segdainf
+from core.views import page_disciplinas_segdainf
+from core.views import page_disciplina_seginfoatualidade
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

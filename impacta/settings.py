@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'app',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -74,18 +74,17 @@ WSGI_APPLICATION = 'impacta.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'sqlimpacta1700604.database.windows.net',
-        'USER': 'myuser',
-        'PASSWORD': 'mypassword',
-        'HOST': 'servidor'
-    }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = "core.Usuario"
 
 LOGIN_URL = 'login'
 
@@ -127,3 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+try:
+    from local_settings import *
+except ImportError:
+    pass

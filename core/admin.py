@@ -1,5 +1,5 @@
 from django.contrib import admin
-from app.models import Curso, Disciplina
+from core.models import Curso, Disciplina
 
 # Register your models here.
 

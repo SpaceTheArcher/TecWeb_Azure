@@ -1,6 +1,6 @@
 from django import forms
-from app.models import Disciplina
-from app.models import Contato
+from core.models import Disciplina
+from core.models import Contato
 
 class ContatoForm(forms.ModelForm):
 
