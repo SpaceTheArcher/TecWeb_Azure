@@ -62,12 +62,7 @@ class Usuario(AbstractBaseUser):
 # Create your models here.
 
 class Aluno(Usuario):
-    parent_link = models.OneToOneField( #Apenas para modelos pré-existentes
-	    Usuario, 
-	    primary_key=True, 
-    	db_column="usuario_id", 
-	    parent_link=True
-    ) 
+    parent_link = models.OneToOneField(Usuario,primary_key=True,db_column="usuario_id",parent_link=True)
     curso = models.ForeignKey('core.Curso',blank=True,null=True,)
     celular = models.CharField("Celular", max_length=11)
 
