@@ -1,18 +1,27 @@
-"""
-Definition of forms.
-"""
-
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
-from django.utils.translation import ugettext_lazy as _
+from core.models import Disciplina
+from core.models import Contato
 
-class BootstrapAuthenticationForm(AuthenticationForm):
-    """Authentication form which uses boostrap CSS."""
-    username = forms.CharField(max_length=254,
-                               widget=forms.TextInput({
-                                   'class': 'form-control',
-                                   'placeholder': 'User name'}))
-    password = forms.CharField(label=_("Password"),
-                               widget=forms.PasswordInput({
-                                   'class': 'form-control',
-                                   'placeholder':'Password'}))
+class ContatoForm(forms.ModelForm):
+
+    class Meta:
+        model = Contato
+        fields = ["assunto", "nome", "email", "mensagem"]
+
+    def envia_email(self, contato):
+    	print("ENVIADO")
+
+class DisciplinaForm(forms.ModelForm):
+
+    class Meta:
+        model = Disciplina
+        fields = "__all__"
+        
+    def save(self):
+        nova_disciplina = super(DisciplinaForm, self).save()
+        self.envia_email(contato='ok')
+        return nova_disciplina
+    
+    def envia_email(self, contato):
+        message = "DISCIPLINA CADASTRADA"
+        print("OK - ", message)
