@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import request
-from core.forms import ContatoForm
-from core.forms import DisciplinaForm
+from app.forms import ContatoForm
+from app.forms import DisciplinaForm
 from django.views.generic.edit import FormView
 # Create your views here.
 
